@@ -11,11 +11,10 @@ wea = {
     "image_url": form.getvalue('image_url')
 }
 
-headers = {
-    "Content-Type": "application/json"
-}
+id = form.getvalue('file_name')
 
-requests.post("http://localhost:3000/api/waifus", data=json.dumps(wea), headers=headers)
+headers = {"Content-Type": "application/json"}
+requests.put("http://localhost:3000/api/waifus/" + id, data=json.dumps(wea), headers=headers)
 
 print("Content-type:text/html\r\n\r\n")
 with open("C:/Users/Coke/Desktop/wea/exitoso.html", 'r') as f:

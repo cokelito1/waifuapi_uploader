@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -18,11 +18,12 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>
     <div class="container p-3 my-3 bg-dark text-white align-self-center rounded">
         <div class="bs-example">
-            <a href="/cgi-bin/creater.py"><button class="btn btn-primary">Crear Waifu</button></a>
-            <a href="/cgi-bin/update_wea.py"><button class="btn btn-primary">Updatear Waifu</button></a>
-            <a href="/create_series.html"><button class="btn btn-primary">Crear Serie</button></a>
-        </div>
-    </div>
-</body>
+            <form action="/cgi-bin/create_wea.py" method="post">
+                <div class="form-group">
+                    <label for="name">Nombre de la minita</label>
+                    <input type="text" class="form-control" id="name" name="nombre"
+                        placeholder="Poner el nombre de la mona china">
+                </div>
 
-</html>
+                <div class="form-group">
+                    <label for="serie">Nombre de la serie</label>

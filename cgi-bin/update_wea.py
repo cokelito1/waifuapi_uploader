@@ -1,6 +1,10 @@
 import cgi, cgitb
 import json
 import os
+import requests
+
+r_waifus = requests.get("http://localhost:3000/api/waifus")
+waifus_json = r_waifus.json()
 
 form = cgi.FieldStorage()
 
@@ -16,8 +20,11 @@ print("<div class=\"form-group\">")
 print("<label for=\"coso\">Waifu a updatear</label>")
 print("<select name=\"waifu\" class=\"form-control\" id=\"coso\">")
 
-for x in os.listdir("C:/Users/Coke/Desktop/Cyber oso/waifus_data/"):
-    print("<option value=\"" + x + "\">" + x + "</option>")
+for waifu in waifus_json:
+    try:
+        print("<option value=\"" + waifu["_id"] + "\">" + waifu["nombre"] + "</option>")
+    except:
+        continue
 
 print("</select>")
 print("</div>")
